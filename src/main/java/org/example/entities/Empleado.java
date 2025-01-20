@@ -1,0 +1,25 @@
+package org.example.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "Empleado")
+@Data
+public class Empleado extends Base{
+
+    @Column(name = "EstadoCivil")
+    private EstadoCivil estadoCivil;
+    @Column(name = "Empleado")
+    private Date incorporacion;
+    @Column(name = "vencimientoContrato")
+    private Date vencimientoContrato;
+}
