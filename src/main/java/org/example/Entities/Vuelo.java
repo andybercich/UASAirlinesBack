@@ -11,7 +11,10 @@ import java.util.Set;
 @Entity
 public class Vuelo extends org.example.Entities.Base {
 
-    //Falta la relacion con Avion
+    //DUDAS
+    @OneToOne
+    @JoinColumn(name="fk_avion")
+    private Avion avion;
 
     //Falta la relacion con Llegada con aeropuerto
 

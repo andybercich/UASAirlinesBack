@@ -3,9 +3,11 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.entities.enums.EstadoAvion;
+import org.example.Entities.enums.EstadoAvion;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "avion")
@@ -35,7 +37,9 @@ public class Avion extends org.example.Entities.Base {
     @Enumerated(value = EnumType.STRING)
     private EstadoAvion estado;
 
-    //Atributo estadoMantenimiento y su relacion
+    @OneToOne
+    @JoinColumn(name = "fk_estado_mantenimiento")
+    private EstadoMantenimiento estadoMantenimiento;
 
     private String fabricante;
 
@@ -54,17 +58,15 @@ public class Avion extends org.example.Entities.Base {
     @Column(name = "rango_vuelo_km")
     private double rangoVueloKm;
 
-    //Atributo tripulacion
+    @OneToOne
+    @JoinColumn(name = "fk_tripulacion")
+    private Tripulacion tripulacion;
 
     @ManyToOne
     @JoinColumn(name = "fk_aeropuerto")
-    private Aeropuerto ubicacionActual;
+    private org.example.Entities.Aeropuerto ubicacionActual;
 
     @Column(name = "velocidad_maxima")
     private double velocidadMaxima;
-
-    //Atributo vuelosAsignados de tipo Vuelo
-
-    //Atributo vuelosProximos de tipo vuelo
 
 }
