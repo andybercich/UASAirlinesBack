@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.example.Entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Aeropuerto extends Base {
+public class Aeropuerto extends org.example.Entities.Base {
 
     private String nombre;
 
@@ -18,6 +18,6 @@ public class Aeropuerto extends Base {
 
     @ManyToOne
     @JoinColumn(name = "fk_ciudad")
-    private Ciudad ciudad;
+    private org.example.Entities.Ciudad ciudad;
 
 }

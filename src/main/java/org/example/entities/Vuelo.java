@@ -1,13 +1,15 @@
 package org.example.Entities;
 
 import jakarta.persistence.*;
+import org.example.Entities.enums.PropositoVuelo;
+import org.example.Entities.enums.TipoOperacion;
 
 import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Vuelo extends org.example.entities.Base {
+public class Vuelo extends org.example.Entities.Base {
 
     //Falta la relacion con Avion
 

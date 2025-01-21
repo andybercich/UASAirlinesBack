@@ -1,9 +1,10 @@
 package org.example.Entities;
 
 import jakarta.persistence.*;
+import org.example.Entities.enums.Clase;
 
 @Entity
-public class Pasaje extends org.example.entities.Base {
+public class Pasaje extends org.example.Entities.Base {
 
     private String asiento;
 

@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.example.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "administrador-comercial")
+@Table(name = "AdministradorComercial")
 @Data
-public class AdministradorComercial extends Base {
+public class AdministradorComercial extends org.example.Entities.Base {
 
 
     private String password;

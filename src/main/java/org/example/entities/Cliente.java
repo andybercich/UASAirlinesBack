@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 //Hay que hacer que herede de persona
-public class Cliente {
+public class Cliente extends Persona{
 
     private Long dni;
 

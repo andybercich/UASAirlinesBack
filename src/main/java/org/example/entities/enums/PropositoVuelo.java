@@ -1,4 +1,4 @@
-package org.example.Entities;
+package org.example.Entities.enums;
 
 public enum PropositoVuelo {
 
