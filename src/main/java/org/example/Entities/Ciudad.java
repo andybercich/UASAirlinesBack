@@ -6,7 +6,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.Entities.Base;
 
 @Entity
 @Table(name = "ciudad")
@@ -19,6 +18,6 @@ public class Ciudad extends Base {
 
     @ManyToOne
     @JoinColumn(name = "fk_pais")
-    private org.example.Entities.Pais pais;
+    private Pais pais;
 
 }

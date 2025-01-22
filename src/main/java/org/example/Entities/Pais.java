@@ -6,8 +6,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.Entities.Base;
-import org.example.entities.enums.Continente;
+import org.example.Entities.enums.Continente;
 
 @Entity
 @Table(name = "pais")

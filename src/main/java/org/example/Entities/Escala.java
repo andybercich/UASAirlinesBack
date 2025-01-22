@@ -7,7 +7,7 @@ import jakarta.persistence.ManyToOne;
 import java.time.ZonedDateTime;
 
 @Entity
-public class Escala extends org.example.Entities.Base {
+public class Escala extends Base {
 
     private ZonedDateTime llegada;
 

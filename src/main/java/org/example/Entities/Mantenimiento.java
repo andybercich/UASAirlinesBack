@@ -29,11 +29,11 @@ public class Mantenimiento extends Base {
 
     @ManyToOne
     @JoinColumn(name = "supervisor_id")
-    private org.example.Entities.Supervisor supervisor;
+    private Supervisor supervisor;
 
     @OneToMany
     @JoinColumn(name = "tecnico_id")
-    private List<org.example.Entities.Tecnico> tecnicos;
+    private List<Tecnico> tecnicos;
 
     @OneToOne
     @JoinColumn(name = "estado_mantenimiento_id")

@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.entities.enums.EstadoAvion;
+import org.example.Entities.enums.EstadoAvion;
 
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Avion extends org.example.Entities.Base {
+public class Avion extends Base {
 
     @Column(name = "altitud_maxima_vuelo")
     private double altitudMaximaVuelo;
@@ -25,7 +25,7 @@ public class Avion extends org.example.Entities.Base {
 
     @OneToOne
     @JoinColumn(name = "fk_configuracion_cabina")
-    private org.example.Entities.ConfiguracionCabina configuracion;
+    private ConfiguracionCabina configuracion;
 
     @Column(name = "consumo_combustible_km")
     private double consumoCombustibleKm;
