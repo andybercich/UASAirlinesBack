@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "Empleado")
 @Data
-public class Empleado extends org.example.Entities.Base {
+public class Empleado extends Base {
 
     @Column(name = "EstadoCivil")
     private EstadoCivil estadoCivil;

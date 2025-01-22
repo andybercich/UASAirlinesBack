@@ -8,6 +8,7 @@ import org.example.Entities.enums.Continente;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Entity
 @Table(name = "pais")
 @Data

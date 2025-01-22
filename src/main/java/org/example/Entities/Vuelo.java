@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Vuelo extends org.example.Entities.Base {
+public class Vuelo extends Base {
 
     //DUDAS
     @OneToOne

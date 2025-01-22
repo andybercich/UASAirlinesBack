@@ -14,7 +14,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Avion extends org.example.Entities.Base {
+public class Avion extends Base {
 
     @Column(name = "altitud_maxima_vuelo")
     private double altitudMaximaVuelo;
@@ -27,7 +27,7 @@ public class Avion extends org.example.Entities.Base {
 
     @OneToOne
     @JoinColumn(name = "fk_configuracion_cabina")
-    private org.example.Entities.ConfiguracionCabina configuracion;
+    private ConfiguracionCabina configuracion;
 
     @Column(name = "consumo_combustible_km")
     private double consumoCombustibleKm;

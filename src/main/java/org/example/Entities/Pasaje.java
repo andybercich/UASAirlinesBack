@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.example.Entities.enums.Clase;
 
 @Entity
-public class Pasaje extends org.example.Entities.Base {
+public class Pasaje extends Base {
 
     private String asiento;
 

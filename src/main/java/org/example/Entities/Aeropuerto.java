@@ -12,7 +12,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Aeropuerto extends org.example.Entities.Base {
+public class Aeropuerto extends Base {
 
     private String nombre;
 
@@ -21,7 +21,7 @@ public class Aeropuerto extends org.example.Entities.Base {
 
     @ManyToOne
     @JoinColumn(name = "fk_ciudad")
-    private org.example.Entities.Ciudad ciudad;
+    private Ciudad ciudad;
 
     @OneToMany(mappedBy = "ubicacionActual", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Avion> aviones = new HashSet<>();
