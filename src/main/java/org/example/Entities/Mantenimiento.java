@@ -33,7 +33,6 @@ public class Mantenimiento extends Base {
     private Supervisor supervisor;
 
     @OneToMany(mappedBy = "mantenimiento", orphanRemoval=false )
-    @JoinColumn(name = "tecnico_id")
     private List<Tecnico> tecnicos = new ArrayList<>();
 
     @ManyToOne
