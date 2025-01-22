@@ -26,9 +26,11 @@ public class Tripulacion extends Base{
     private Piloto copiloto;
     @Column(name = "estado")
     private EstadoTripulacion estado;
+
     //ARRAY
     @Column(name = "personalCabina")
     private PersonalCabina personalCabina;
+
     @Column(name = "proximaCapacitacion")
     private Date proximaCapacitacion;
 }
