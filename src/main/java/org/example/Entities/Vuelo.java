@@ -1,6 +1,7 @@
 package org.example.Entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.example.Entities.enums.PropositoVuelo;
 import org.example.Entities.enums.TipoOperacion;
 
@@ -11,12 +12,9 @@ import java.util.Set;
 @Entity
 public class Vuelo extends Base {
 
-    //DUDAS
     @OneToOne
     @JoinColumn(name="fk_avion")
     private Avion avion;
-
-    //Falta la relacion con Llegada con aeropuerto
 
     private double distanciaRecorrerKm;
 
@@ -29,7 +27,13 @@ public class Vuelo extends Base {
 
     private ZonedDateTime fechaHoraSalida;
 
-    //Falta relacion con Origen Aeropuerto
+    @ManyToOne
+    @NotNull(message = "El vuelo tiene que tener origen")
+    private Aeropuerto origen;
+
+    @ManyToOne
+    @NotNull(message = "El vuelo tiene que tener destino")
+    private Aeropuerto destino;
 
     private double horasVuelo;
 

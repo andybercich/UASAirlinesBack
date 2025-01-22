@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "Piloto")
 @Data
-public class Piloto extends Base {
+public class Piloto extends Empleado {
 
     @Column(name = "fechaUltimaInspeccion")
     private Date fechaUltimaInspeccion;
@@ -26,6 +26,5 @@ public class Piloto extends Base {
     private Date proximaPrueba;
     @Column(name = "tipoLicencia")
     private String tipoLicencia;
-    @Column(name = "ubicacionActual")
-    private String ubicacionActual;
+
 }

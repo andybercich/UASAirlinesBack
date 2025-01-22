@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "AdministradorComercial")
 @Data
-public class AdministradorComercial extends Base {
+public class AdministradorComercial extends Empleado {
 
 
     private String password;

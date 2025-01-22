@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.Entities.enums.EstadoAvion;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "avion")
@@ -32,7 +30,6 @@ public class Avion extends Base {
     @Column(name = "consumo_combustible_km")
     private double consumoCombustibleKm;
 
-    //Atributo distribucion
 
     @Enumerated(value = EnumType.STRING)
     private EstadoAvion estado;
@@ -44,7 +41,7 @@ public class Avion extends Base {
     private String fabricante;
 
     @Column(name = "fecha_creacion")
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
 
     private String matricula;
 

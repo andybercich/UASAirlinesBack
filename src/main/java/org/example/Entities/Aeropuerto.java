@@ -23,7 +23,17 @@ public class Aeropuerto extends Base {
     @JoinColumn(name = "fk_ciudad")
     private Ciudad ciudad;
 
+    @OneToMany(mappedBy = "aeropuerto", orphanRemoval = true)
+    private Set<Escala> escalas = new HashSet<>();
+
     @OneToMany(mappedBy = "ubicacionActual", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Avion> aviones = new HashSet<>();
+
+    @OneToMany(mappedBy = "origen")
+    private Set<Vuelo> salidas = new HashSet<>();
+
+    @OneToMany(mappedBy = "destino")
+    private Set<Vuelo> llegadas = new HashSet<>();
+
 
 }

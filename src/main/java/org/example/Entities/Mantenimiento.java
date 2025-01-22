@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,11 +32,11 @@ public class Mantenimiento extends Base {
     @JoinColumn(name = "supervisor_id")
     private Supervisor supervisor;
 
-    @OneToMany
+    @OneToMany(mappedBy = "mantenimiento", orphanRemoval=false )
     @JoinColumn(name = "tecnico_id")
-    private List<Tecnico> tecnicos;
+    private List<Tecnico> tecnicos = new ArrayList<>();
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "estado_mantenimiento_id")
     private EstadoMantenimiento estadoMantenimiento;
 }

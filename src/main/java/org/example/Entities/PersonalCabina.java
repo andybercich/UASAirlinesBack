@@ -1,26 +1,30 @@
 package org.example.Entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.Entities.enums.RolCabina;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "PersonalCabina")
 @Data
-public class PersonalCabina extends Base {
+public class PersonalCabina extends Empleado {
 
-    //ARRAY
+
+
     @Column(name = "Idiomas")
-    private String idiomas;
+    private List<String> idiomas = new ArrayList<>();
+
     @Column(name = "RolCabina")
     private RolCabina rolCabina;
-    @Column(name = "UbicacionActual")
-    private String ubicacionActual;
 
+    @ManyToOne
+    @JoinColumn(name = "tripulacion_id")
+    private Tripulacion tripulacion;
 }

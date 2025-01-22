@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "supervisor")
 @Data
-public class Supervisor extends Base {
+public class Supervisor extends Tecnico {
 
 
     private String password;
