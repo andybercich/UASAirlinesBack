@@ -8,10 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "Persona")
-@Data
 public class Persona extends Base {
 
     @Column(name = "nombre")

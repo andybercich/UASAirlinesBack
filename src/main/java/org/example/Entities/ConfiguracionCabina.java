@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "configuracion_cabina")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ConfiguracionCabina extends Base {
 
     @Column(name = "sistema_seguridad")

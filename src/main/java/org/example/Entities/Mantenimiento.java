@@ -10,10 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "mantenimiento")
-@Data
 public class Mantenimiento extends Base {
 
     @Column(name = "incidencia")
