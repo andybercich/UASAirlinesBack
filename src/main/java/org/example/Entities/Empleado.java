@@ -12,10 +12,6 @@ import org.example.Entities.enums.EstadoCivil;
 import java.util.Date;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "Empleado")
-@Data
 public class Empleado extends Persona {
 
     @Column(name = "EstadoCivil")

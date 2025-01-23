@@ -8,10 +8,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "ciudad")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Ciudad extends Base {
 
     private String nombre;

@@ -9,10 +9,6 @@ import org.hibernate.action.internal.OrphanRemovalAction;
 import java.util.Date;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "Tecnico")
-@Data
 public class Tecnico extends Empleado {
 
 

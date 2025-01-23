@@ -11,10 +11,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "Tripulacion")
-@Data
 public class Tripulacion extends Base {
 
     @Column(name = "estado")

@@ -10,10 +10,6 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "pais")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Pais extends Base {
 
     private String nombre;

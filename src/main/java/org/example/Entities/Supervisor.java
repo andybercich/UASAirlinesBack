@@ -6,10 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "supervisor")
-@Data
 public class Supervisor extends Tecnico {
 
 

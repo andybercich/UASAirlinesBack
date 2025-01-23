@@ -1,6 +1,4 @@
 package org.example.Entities;
-
-
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
