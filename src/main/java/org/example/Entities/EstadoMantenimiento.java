@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
+@Data
 public class EstadoMantenimiento extends Base {
 
     @Column(name = "ciclos")

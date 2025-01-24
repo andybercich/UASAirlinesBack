@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
+@Data
 public class Piloto extends Empleado {
 
     @Column(name = "fechaUltimaInspeccion")

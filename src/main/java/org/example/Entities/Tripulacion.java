@@ -1,6 +1,7 @@
 package org.example.Entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.example.Entities.enums.EstadoTripulacion;
 
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Data
 public class Tripulacion extends Base {
 
     @Column(name = "estado")

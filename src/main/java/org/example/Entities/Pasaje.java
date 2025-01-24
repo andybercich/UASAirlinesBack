@@ -1,9 +1,11 @@
 package org.example.Entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.example.Entities.enums.Clase;
 
 @Entity
+@Data
 public class Pasaje extends Base {
 
     private String asiento;

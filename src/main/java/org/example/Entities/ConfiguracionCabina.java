@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
 public class ConfiguracionCabina extends Base {
 
     @Column(name = "sistema_seguridad")

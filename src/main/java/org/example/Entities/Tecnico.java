@@ -9,6 +9,7 @@ import org.hibernate.action.internal.OrphanRemovalAction;
 import java.util.Date;
 
 @Entity
+@Data
 public class Tecnico extends Empleado {
 
 
