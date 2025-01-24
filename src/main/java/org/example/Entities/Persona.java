@@ -2,13 +2,19 @@ package org.example.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Entity
-public class Persona extends Base {
+@MappedSuperclass
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+abstract class Persona extends Base {
 
     @Column(name = "nombre")
     private String nombre;

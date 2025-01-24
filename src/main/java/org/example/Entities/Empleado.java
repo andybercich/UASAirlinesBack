@@ -12,12 +12,13 @@ import org.example.Entities.enums.EstadoCivil;
 import java.util.Date;
 
 @Entity
+@Data
 public class Empleado extends Persona {
-
     @Column(name = "EstadoCivil")
     private EstadoCivil estadoCivil;
     @Column(name = "Empleado")
     private Date incorporacion;
     @Column(name = "vencimientoContrato")
     private Date vencimientoContrato;
+
 }

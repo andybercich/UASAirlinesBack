@@ -12,7 +12,7 @@ public class VueloComercial extends Vuelo{
 
 
     @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Pasaje> pasajesVendidos = new ArrayList<>();
+    private List<Pasaje> pasajes = new ArrayList<>();
 
 
 }

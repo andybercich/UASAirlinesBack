@@ -8,6 +8,7 @@ import org.example.Entities.enums.EstadoAvion;
 import java.time.LocalDate;
 
 @Entity
+@Data
 public class Avion extends Base {
 
     @Column(name = "altitud_maxima_vuelo")

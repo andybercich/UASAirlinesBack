@@ -23,4 +23,6 @@ public class Pasaje extends Base {
     @JoinColumn(name = "vuelo_id")
     private Vuelo vuelo;
 
+    private boolean vendido;
+
 }

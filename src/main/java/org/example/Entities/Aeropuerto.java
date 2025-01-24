@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Data
 public class Aeropuerto extends Base {
 
     private String nombre;

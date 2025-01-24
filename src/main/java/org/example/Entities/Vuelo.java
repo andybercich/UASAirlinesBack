@@ -2,6 +2,7 @@ package org.example.Entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 import org.example.Entities.enums.PropositoVuelo;
 import org.example.Entities.enums.TipoOperacion;
 
@@ -10,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Data
 public class Vuelo extends Base {
 
     @OneToOne
