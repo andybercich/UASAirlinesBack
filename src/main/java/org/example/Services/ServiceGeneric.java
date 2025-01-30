@@ -3,6 +3,7 @@ package org.example.Services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.Repositories.RepositorioGenerico;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,41 +51,13 @@ public abstract class ServiceGeneric<T, ID, Repo extends RepositorioGenerico<T, 
         }
     }
 
-
     @Transactional
     public T update(ID id, T entity) throws Exception {
         try {
             T existingEntity = repository.findById(id)
                     .orElseThrow(() -> new Exception("Entity not found"));
 
-            Map<String, Object> fieldMap = new HashMap<>();
-
-            // Obtener los valores actuales de la entidad existente
-            for (Field field : existingEntity.getClass().getDeclaredFields()) {
-                field.setAccessible(true);
-                fieldMap.put(field.getName(), field.get(existingEntity));
-            }
-
-            // Comparar y reemplazar solo los valores que no sean null ni listas vacías
-            for (Field field : entity.getClass().getDeclaredFields()) {
-                field.setAccessible(true);
-                Object newValue = field.get(entity);
-
-                if (newValue != null) {
-                    // Verificar si el valor es una lista y está vacía
-                    if (newValue instanceof List && ((List<?>) newValue).isEmpty()) {
-                        continue; // No reemplazar listas vacías
-                    }
-                    fieldMap.put(field.getName(), newValue);
-                }
-            }
-
-            // Asignar los valores actualizados a la entidad existente
-            for (Map.Entry<String, Object> entry : fieldMap.entrySet()) {
-                Field field = existingEntity.getClass().getDeclaredField(entry.getKey());
-                field.setAccessible(true);
-                field.set(existingEntity, entry.getValue());
-            }
+            BeanUtils.copyProperties(entity, existingEntity, "id");
 
             return repository.saveAndFlush(existingEntity);
 
