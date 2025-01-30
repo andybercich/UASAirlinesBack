@@ -1,13 +1,18 @@
 package org.example.Services;
 
 import org.example.DTO.PasajeTagDTO;
+import org.example.DTO.VueloTagDTO;
 import org.example.Entities.Pasaje;
+import org.example.Entities.Vuelo;
 import org.example.Repositories.PasajeRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PasajeService extends ServiceGeneric<Pasaje, Long, PasajeRepository>{
 
     public PasajeService(PasajeRepository pasajeRepository) {
@@ -23,10 +28,9 @@ public class PasajeService extends ServiceGeneric<Pasaje, Long, PasajeRepository
             if (!pasajes.isEmpty()){
 
 
-                return pasajes.stream().map(pasaje -> new PasajeTagDTO(pasaje.getAsiento(), pasaje.getPrecio(),
-                        pasaje.getClase(), pasaje.isVendido())).toList();
+                return pasajes.stream().map(this::convertToPasajeTagDTO).toList();
 
-            }else {throw new Exception("Este vuelo id no tiene ningun pasaje relacionado");}
+            }else {return Collections.emptyList();}
 
 
 
@@ -45,10 +49,9 @@ public class PasajeService extends ServiceGeneric<Pasaje, Long, PasajeRepository
             if (!pasajes.isEmpty()){
 
 
-                return pasajes.stream().map(pasaje -> new PasajeTagDTO(pasaje.getAsiento(), pasaje.getPrecio(),
-                        pasaje.getClase(), pasaje.isVendido())).toList();
+                return pasajes.stream().map(this::convertToPasajeTagDTO).toList();
 
-            }else {throw new Exception("Este cliente id no tiene ningun pasaje relacionado");}
+            }else {return Collections.emptyList();}
 
 
 
@@ -68,10 +71,9 @@ public class PasajeService extends ServiceGeneric<Pasaje, Long, PasajeRepository
             if (!pasajes.isEmpty()){
 
 
-                return pasajes.stream().map(pasaje -> new PasajeTagDTO(pasaje.getAsiento(), pasaje.getPrecio(),
-                        pasaje.getClase(), pasaje.isVendido())).toList();
+                return pasajes.stream().map(this::convertToPasajeTagDTO).toList();
 
-            }else {throw new Exception("Este vuelo id no tiene ningun pasaje relacionado");}
+            }else {return Collections.emptyList();}
 
 
 
@@ -84,5 +86,36 @@ public class PasajeService extends ServiceGeneric<Pasaje, Long, PasajeRepository
     }
 
 
+    public List<PasajeTagDTO> getAllPasajeDTO() throws Exception {
+
+        try {
+
+            List<Pasaje> pasajes = repository.findAll();
+
+            if (!pasajes.isEmpty()){
+
+
+                return pasajes.stream().map(this::convertToPasajeTagDTO).toList();
+
+            }else {return Collections.emptyList();}
+
+
+
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+
+    }
+
+
+
+    private PasajeTagDTO convertToPasajeTagDTO(Pasaje pasaje) {
+        return new PasajeTagDTO(
+                pasaje.getAsiento(),
+                pasaje.getPrecio(),
+                pasaje.getClase(),
+                pasaje.isVendido()
+        );
+    }
 
 }

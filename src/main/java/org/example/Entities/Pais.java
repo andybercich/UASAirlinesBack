@@ -18,7 +18,4 @@ public class Pais extends Base {
     @Enumerated(value = EnumType.STRING)
     private Continente continente;
 
-    @OneToMany(mappedBy = "pais", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Ciudad> ciudades = new HashSet<>();
-
 }

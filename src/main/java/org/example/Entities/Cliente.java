@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 public class Cliente extends Persona{
 
-    private Long dni;
 
     private double kmAcumulados;
 
