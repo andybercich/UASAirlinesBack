@@ -1,24 +1,26 @@
 package org.example.Entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import org.example.Entities.enums.EstadoCivil;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
 public class Empleado extends Persona {
-    @Column(name = "EstadoCivil")
+
+    @Enumerated(EnumType.STRING)
     private EstadoCivil estadoCivil;
-    @Column(name = "Empleado")
-    private Date incorporacion;
-    @Column(name = "vencimientoContrato")
-    private Date vencimientoContrato;
+
+    @NotNull
+    private LocalDate incorporacion;
+
+    @NotNull
+    private LocalDate vencimientoContrato;
 
 }

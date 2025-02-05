@@ -7,6 +7,7 @@ import org.example.Repositories.TripulacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class TripulacionService extends ServiceGeneric<Tripulacion,Long, Tripula
         }
     }
 
-    public List<Tripulacion> buscarTripulacionPorCapacitacionAntesDe(Date fecha) throws Exception{
+    public List<Tripulacion> buscarTripulacionPorCapacitacionAntesDe(LocalDate fecha) throws Exception{
         try {
             return repository.findByProximaCapacitacionBefore(fecha);
         }catch (Exception e){
@@ -42,20 +43,21 @@ public class TripulacionService extends ServiceGeneric<Tripulacion,Long, Tripula
         }
     }
 
-    public List<Tripulacion> buscarTripulacionPorPersonalCabina(Long personalCabinaId) throws Exception{
+    public List<Tripulacion> buscarPorCapitanyEstadoTripulacion(Piloto capitan,EstadoTripulacion estadoTripulacion) throws Exception{
         try {
-            return repository.findByPersonalCabina(personalCabinaId);
+            return repository.findByCapitanAndEstado(capitan,estadoTripulacion);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
 
-    public List<Tripulacion> buscarPorIdiomaPersonalCabina(String idioma) throws Exception{
+    public List<Tripulacion> buscarTripulacionPorCopiloto(Piloto copiloto) throws Exception{
         try {
-            return repository.findByIdiomaPersonalCabina(idioma);
+            return repository.findByCopiloto(copiloto);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
+
 
 }

@@ -1,11 +1,9 @@
 package org.example.Repositories;
 
 import org.example.Entities.Piloto;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,18 +20,15 @@ public interface PilotoRepository extends RepositorioGenerico<Piloto,Long>{
     Optional<Piloto> findByNumLicencia(int numLicencia);
 
     //Buscar pilotos con inspección reciente (fecha posterior a una fecha específica)
-    List<Piloto> findByFechaUltimaInspeccionAfter(Date fecha);
+    List<Piloto> findByFechaUltimaInspeccionAfter(LocalDate fecha);
 
     //Buscar pilotos con pruebas próximas (en un rango de fechas)
-    List<Piloto> findByProximaPruebaBetween(Date inicio, Date fin);
-
+    List<Piloto> findByProximaPruebaBetween(LocalDate inicio, LocalDate fin);
 
     //Contar pilotos con un tipo de licencia específico
     long countByTipoLicencia(String tipoLicencia);
 
-    //Buscar pilotos cuya licencia está próxima a vencer
-    @Query("SELECT p FROM Piloto p WHERE p.proximaPrueba <= :fechaLimite")
-    List<Piloto> findPilotosConLicenciaPorVencer(@Param("fechaLimite") Date fechaLimite);
-
+    //Buscar pilotos con un tipo de licencia específico y más de un número determinado de horas de vuelo.
+    List<Piloto> findByTipoLicenciaAndHorasVueloGreaterThan(String tipoLicencia, int horas);
 
 }

@@ -1,27 +1,28 @@
 package org.example.Entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
-import java.util.Date;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import java.time.LocalDate;
 
 @Entity
 @Data
 public class Piloto extends Empleado {
 
-    @Column(name = "fechaUltimaInspeccion")
-    private Date fechaUltimaInspeccion;
-    @Column(name = "horasVuelo")
+    private LocalDate fechaUltimaInspeccion;
+
+    @Min(0)
     private int horasVuelo;
-    @Column(name = "numLicencia")
+
+    @NotNull
     private int numLicencia;
-    @Column(name = "proximaPrueba")
-    private Date proximaPrueba;
-    @Column(name = "tipoLicencia")
+
+    private LocalDate proximaPrueba;
+
+    @NotBlank
     private String tipoLicencia;
 
 }

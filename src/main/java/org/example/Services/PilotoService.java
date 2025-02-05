@@ -5,6 +5,7 @@ import org.example.Repositories.PilotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class PilotoService extends ServiceGeneric<Piloto,Long, PilotoRepository>
         this.repository = pilotoRepository;
     }
 
-    public List<Piloto> buscarPilotoPorLicencia(String tipoLicencia) throws Exception {
+   public List<Piloto> buscarPilotoPorLicencia(String tipoLicencia) throws Exception {
         try {
             return repository.findByTipoLicencia(tipoLicencia);
         } catch (Exception e) {
@@ -41,7 +42,7 @@ public class PilotoService extends ServiceGeneric<Piloto,Long, PilotoRepository>
         }
     }
 
-    public List<Piloto> buscarPilotoConInspeccionReciente(Date fecha) throws Exception {
+    public List<Piloto> buscarPilotoConInspeccionReciente(LocalDate fecha) throws Exception {
         try {
             return repository.findByFechaUltimaInspeccionAfter(fecha);
         } catch (Exception e) {
@@ -49,7 +50,7 @@ public class PilotoService extends ServiceGeneric<Piloto,Long, PilotoRepository>
         }
     }
 
-    public List<Piloto> buscarPilotoConPruebasProximas(Date inicio, Date fin) throws Exception {
+    public List<Piloto> buscarPilotoConPruebasProximas(LocalDate inicio, LocalDate fin) throws Exception {
         try {
             return repository.findByProximaPruebaBetween(inicio, fin);
         } catch (Exception e) {
@@ -64,10 +65,9 @@ public class PilotoService extends ServiceGeneric<Piloto,Long, PilotoRepository>
             throw new Exception(e.getMessage());
         }
     }
-
-    public List<Piloto> buscarPilotosConLicenciaPorVencer(Date fechaLimite) throws Exception {
+    public List<Piloto> porHorasDeVueloYTipoLicencia(String tipoLicencia, int horas) throws Exception {
         try {
-            return repository.findPilotosConLicenciaPorVencer(fechaLimite);
+            return repository.findByTipoLicenciaAndHorasVueloGreaterThan(tipoLicencia,horas);
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

@@ -5,6 +5,7 @@ import org.example.Repositories.AdministradorComercialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,5 +33,19 @@ public class AdministradorComercialService extends ServiceGeneric<AdministradorC
         }
     }
 
+    public List<AdministradorComercial> buscarPorFechaIncorporacion(LocalDate fecha) throws Exception {
+        try {
+            return repository.findByIncorporacionAfter(fecha);
+        }catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+    public List<AdministradorComercial> buscarPorNombreyApellido (String nombre, String apellido) throws Exception {
+        try {
+            return repository.findByNombreAndApellido(nombre,apellido);
+        }catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 
 }

@@ -1,35 +1,31 @@
 package org.example.Entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.example.Entities.enums.EstadoTripulacion;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 
 @Entity
 @Data
 public class Tripulacion extends Base {
 
-    @Column(name = "estado")
+    @Enumerated(EnumType.STRING)
+    @NotNull
     private EstadoTripulacion estado;
 
     @Column(name = "proximaCapacitacion")
-    private Date proximaCapacitacion;
+    private LocalDate proximaCapacitacion;
 
     @OneToOne
     @JoinColumn(name = "capitan_id")
+    @NotNull
     private Piloto capitan;
 
     @OneToOne
     @JoinColumn(name = "copiloto_id")
+    @NotNull
     private Piloto copiloto;
-
-    @OneToMany(mappedBy = "tripulacion")
-    private Set<PersonalCabina> personalCabina = new HashSet<>();
-
-
-
 
 }

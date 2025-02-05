@@ -1,19 +1,17 @@
 package org.example.Entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 public class AdministradorComercial extends Empleado {
 
-
+    @NotBlank
     private String password;
-    @Column(name = "user")
+
+    @NotBlank
     private String user;
 
 }

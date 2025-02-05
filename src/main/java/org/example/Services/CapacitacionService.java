@@ -40,12 +40,13 @@ public class CapacitacionService extends ServiceGeneric<Capacitacion,Long, Capac
         }
     }
 
-    public List<Capacitacion> buscarPorCantidadDeEmpleadosMayorA(int cantidad) throws Exception {
+    public List<Capacitacion> buscarPorFechaInicioDespues(LocalDate fechaInicio) throws Exception {
         try {
-            return repository.findByCantidadDeEmpleadosMayorA(cantidad);
+            return repository.findByFechaInicioAfter(fechaInicio);
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
+
 
 }

@@ -12,24 +12,22 @@ import java.util.List;
 public interface PersonalCabinaRepository extends RepositorioGenerico<PersonalCabina,Long>{
 
     //Buscar PersonalCabina por idioma especifico
-    List<PersonalCabina> findByIdiomasContaining(String idioma);
+    @Query("SELECT p FROM PersonalCabina p WHERE :idioma MEMBER OF p.idiomas")
+    List<PersonalCabina> findByIdioma(@Param("idioma") String idioma);
 
     //Buscar personal de cabina por rol específico
     List<PersonalCabina> findByRolCabina(RolCabina rolCabina);
 
-    //Buscar personal de cabina que hable múltiples idiomas (lista de idiomas)
-    /*@Query("SELECT p FROM PersonalCabina p WHERE :idioma IN elements(p.idiomas)")
-    List<PersonalCabina> findByMultipleIdiomas(@Param("idioma") String idioma);*/
-
     // Buscar personal de cabina por tripulación específica
     List<PersonalCabina> findByTripulacion_Id(Long tripulacionId);
 
-    //Buscar personal que hable un idioma y tenga un rol específico
-    @Query("SELECT p FROM PersonalCabina p WHERE :idioma IN elements(p.idiomas) AND p.rolCabina = :rolCabina")
-    List<PersonalCabina> findByIdiomaAndRol(@Param("idioma") String idioma, @Param("rolCabina") RolCabina rolCabina);
+    //Buscar personal de cabina que pertenezca a una tripulación específica y tenga un rol determinado
+     List<PersonalCabina> findByTripulacion_IdAndRolCabina(Long tripulacionId, RolCabina rolCabina);
 
-    //Buscar personalCabina que hable dos idiomas especificos
-    @Query("SELECT p FROM PersonalCabina p WHERE :idioma1 IN elements(p.idiomas) AND :idioma2 IN elements(p.idiomas)")
-    List<PersonalCabina> findByIdiomas(@Param("idioma1") String idioma1, @Param("idioma2") String idioma2);
+    //Buscar personal de cabina que pertenezca a una tripulación específica y hable un idioma específico
+    List<PersonalCabina> findByTripulacion_IdAndIdiomasContaining(Long tripulacionId, String idioma);
+
+    //Buscar personal de cabina que tenga un rol específico y hable un idioma determinado.
+    List<PersonalCabina> findByRolCabinaAndIdiomasContaining(RolCabina rolCabina, String idioma);
 
 }
