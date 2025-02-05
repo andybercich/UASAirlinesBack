@@ -6,13 +6,11 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 @MappedSuperclass
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
 abstract class Persona extends Base {
 
     @NotBlank
