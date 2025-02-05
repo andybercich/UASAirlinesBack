@@ -54,7 +54,7 @@ public abstract class ControllerGeneric<T, ID, Repo extends RepositorioGenerico<
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<T> update(@PathVariable ID id, @Valid @RequestBody T entity) {
+    public ResponseEntity<T> update(@PathVariable ID id, @RequestBody T entity) {
         try {
             T updatedEntity = service.update(id, entity);
             if (updatedEntity == null) {

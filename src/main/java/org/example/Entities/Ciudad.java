@@ -17,7 +17,5 @@ public class Ciudad extends Base {
     @JoinColumn(name = "fk_pais")
     private Pais pais;
 
-    @OneToMany(mappedBy = "ciudad", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Aeropuerto> aeropuertos = new HashSet<>();
 
 }

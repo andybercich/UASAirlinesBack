@@ -3,11 +3,12 @@ package org.example.Entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import org.example.Entities.enums.PropositoVuelo;
 import org.example.Entities.enums.TipoOperacion;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -39,10 +40,11 @@ public class Vuelo extends Base {
 
     private double horasVuelo;
 
-    @Enumerated(EnumType.STRING)
-    private PropositoVuelo propositoVuelo;
 
     @Enumerated(EnumType.STRING)
     private TipoOperacion tipoOperacion;
+
+    @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pasaje> pasajes = new ArrayList<>();
 
 }
