@@ -1,10 +1,9 @@
 package org.example.Entities;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.Entities.enums.Clase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +24,9 @@ public class ConfiguracionCabina extends Base {
     private String entretenimineto;
 
     //Atributo distribucion asientos
-
-    @Column(name = "clases_disponibles")
-    List<String> clasesDisponibles = new ArrayList<>();
-
+    @ElementCollection
+    @CollectionTable(name = "configuracion_clases", joinColumns = @JoinColumn(name = "configuracion_id"))
+    @Column(name = "clase")
+    @Enumerated(EnumType.STRING)
+    List<Clase> clasesDisponibles = new ArrayList<>();
 }

@@ -24,11 +24,11 @@ public class MantenimientoService extends ServiceGeneric<Mantenimiento, Long, Ma
     }
 
     public List<Mantenimiento> buscarProgramados() {
-        return repository.findByProgramadaTrue();
+        return repository.findByProgramadoTrue();
     }
 
     public List<Mantenimiento> buscarNoProgramados() {
-        return repository.findByProgramadaFalse();
+        return repository.findByProgramadoFalse();
     }
 
     public List<Mantenimiento> buscarPorSupervisor(Supervisor supervisor) {

@@ -16,10 +16,10 @@ public interface MantenimientoRepository extends RepositorioGenerico<Mantenimien
     List<Mantenimiento> findByEstadoMantenimiento(EstadoMantenimiento estado);
 
     // Buscar mantenimientos programados
-    List<Mantenimiento> findByProgramadaTrue();
+    List<Mantenimiento> findByProgramadoTrue();
 
     // Buscar mantenimientos no programados
-    List<Mantenimiento> findByProgramadaFalse();
+    List<Mantenimiento> findByProgramadoFalse();
 
     // Buscar mantenimientos por supervisor
     List<Mantenimiento> findBySupervisor(Supervisor supervisor);
