@@ -35,10 +35,6 @@ public class MantenimientoService extends ServiceGeneric<Mantenimiento, Long, Ma
         return repository.findBySupervisor(supervisor);
     }
 
-    public List<Mantenimiento> buscarPorTecnico(Tecnico tecnico) {
-        return repository.findByTecnicosContaining(tecnico);
-    }
-
     public List<Mantenimiento> buscarIniciadosDespuesDe(Date fecha) {
         return repository.findByInicioAfter(fecha);
     }

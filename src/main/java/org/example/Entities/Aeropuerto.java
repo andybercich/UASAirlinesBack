@@ -19,7 +19,7 @@ public class Aeropuerto extends Base {
     @ManyToOne
     @JoinColumn(name = "fk_ciudad")
     private Ciudad ciudad;
-
+  //End Point para traer los vuelos según origen y destino pero por ciudad.
     @OneToMany(mappedBy = "aeropuerto", orphanRemoval = true)
     private Set<Escala> escalas = new HashSet<>();
 

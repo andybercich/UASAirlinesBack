@@ -29,7 +29,12 @@ public class Mantenimiento extends Base {
     @JoinColumn(name = "supervisor_id")
     private Supervisor supervisor;
 
-    @OneToMany(mappedBy = "mantenimiento", orphanRemoval=false )
+    @ManyToMany
+    @JoinTable(
+            name = "mantenimiento_tecnico",
+            joinColumns = @JoinColumn(name = "mantenimiento_id"),
+            inverseJoinColumns = @JoinColumn(name = "tecnico_id")
+    )
     private List<Tecnico> tecnicos = new ArrayList<>();
 
     @ManyToOne

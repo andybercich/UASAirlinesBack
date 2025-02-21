@@ -16,9 +16,9 @@ public class PersonalCabinaService extends ServiceGeneric<PersonalCabina,Long, P
         this.repository = personalCabinaRepository;
     }
 
-    public List<PersonalCabina> buscarPersonalPorIdioma(String idioma) throws Exception{
+    public List<PersonalCabina> buscarPersonalPorIdioma(Long idioma) throws Exception{
         try {
-            return repository.findByIdioma(idioma);
+            return repository.findByIdiomaId(idioma);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -48,17 +48,17 @@ public class PersonalCabinaService extends ServiceGeneric<PersonalCabina,Long, P
         }
     }
 
-    public List<PersonalCabina> buscarPersonalPorTripulacionyIdioma(Long tripulacionId,String idioma) throws Exception{
+    public List<PersonalCabina> buscarPersonalPorTripulacionyIdioma(Long tripulacionId,Long idioma) throws Exception{
         try {
-            return repository.findByTripulacion_IdAndIdiomasContaining(tripulacionId,idioma);
+            return repository.findByTripulacion_IdAndIdiomaIdContaining(tripulacionId,idioma);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
 
-    public List<PersonalCabina> buscarPersonalPorRolyIdioma(RolCabina rol, String idioma) throws Exception{
+    public List<PersonalCabina> buscarPersonalPorRolyIdioma(RolCabina rol, Long idioma) throws Exception{
         try {
-            return repository.findByRolCabinaAndIdiomasContaining(rol,idioma);
+            return repository.findByRolCabinaAndIdiomaIdContaining(rol,idioma);
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

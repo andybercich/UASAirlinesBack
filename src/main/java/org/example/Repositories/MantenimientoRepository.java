@@ -24,8 +24,6 @@ public interface MantenimientoRepository extends RepositorioGenerico<Mantenimien
     // Buscar mantenimientos por supervisor
     List<Mantenimiento> findBySupervisor(Supervisor supervisor);
 
-    // Buscar mantenimientos por técnico
-    List<Mantenimiento> findByTecnicosContaining(Tecnico tecnico);
 
     // Buscar mantenimientos iniciados después de una fecha específica
     List<Mantenimiento> findByInicioAfter(Date fecha);

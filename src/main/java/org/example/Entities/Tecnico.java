@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.action.internal.OrphanRemovalAction;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,8 +21,7 @@ public class Tecnico extends Empleado {
     @Column(name = "VencimientoLicencia")
     private Date vencimientoLicencia;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_mantenimiento")
-    private Mantenimiento mantenimiento;
+    @ManyToMany(mappedBy = "tecnicos")
+    private List<Mantenimiento> mantenimientos = new ArrayList<>();
 
 }

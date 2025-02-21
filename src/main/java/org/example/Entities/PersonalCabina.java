@@ -13,9 +13,14 @@ import java.util.List;
 @Data
 public class PersonalCabina extends Empleado {
 
-    @ElementCollection
-    @NotEmpty
-    private List<String> idiomas = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "personal_cabina_idioma",
+            joinColumns = @JoinColumn(name = "personal_cabina_id"),
+            inverseJoinColumns = @JoinColumn(name = "idioma_id")
+    )
+    private List<Idioma> idioma = new ArrayList<>();
 
     @Column(name = "RolCabina")
     @Enumerated(EnumType.STRING)

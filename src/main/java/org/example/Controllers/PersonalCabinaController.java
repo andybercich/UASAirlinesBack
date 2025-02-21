@@ -25,7 +25,7 @@ public class PersonalCabinaController extends ControllerGeneric<PersonalCabina,L
     }
 
     @GetMapping("/idioma")
-    public ResponseEntity<List<PersonalCabina>> buscarPersonalPorIdioma(@RequestParam String idioma) throws Exception{
+    public ResponseEntity<List<PersonalCabina>> buscarPersonalPorIdioma(@RequestParam Long idioma) throws Exception{
         try {
             List<PersonalCabina> personal = service.buscarPersonalPorIdioma(idioma);
             return ResponseEntity.ok(personal);
@@ -64,7 +64,8 @@ public class PersonalCabinaController extends ControllerGeneric<PersonalCabina,L
     }
 
     @GetMapping("/tripulacion-idioma")
-    public ResponseEntity<List<PersonalCabina>> buscarPersonalPorTripulacionyIdioma(@RequestParam Long tripulacionId, @RequestParam String idioma) throws Exception{
+    public ResponseEntity<List<PersonalCabina>> buscarPersonalPorTripulacionyIdioma(@RequestParam Long tripulacionId,
+                                                                                    @RequestParam Long idioma) throws Exception{
         try {
             List<PersonalCabina> personal = service.buscarPersonalPorTripulacionyIdioma(tripulacionId,idioma);
             return ResponseEntity.ok(personal);
@@ -74,7 +75,8 @@ public class PersonalCabinaController extends ControllerGeneric<PersonalCabina,L
     }
 
     @GetMapping("/rol-idioma")
-    public ResponseEntity<List<PersonalCabina>> buscarPersonalPorRolyIdioma(@RequestParam RolCabina rol, @RequestParam String idioma) throws Exception{
+    public ResponseEntity<List<PersonalCabina>> buscarPersonalPorRolyIdioma(@RequestParam RolCabina rol,
+                                                                            @RequestParam Long idioma) throws Exception{
         try {
             List<PersonalCabina> personal = service.buscarPersonalPorRolyIdioma(rol,idioma);
             return ResponseEntity.ok(personal);

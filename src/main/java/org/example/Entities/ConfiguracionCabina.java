@@ -23,7 +23,9 @@ public class ConfiguracionCabina extends Base {
 
     private String entretenimineto;
 
-    //Atributo distribucion asientos
+
+    private byte [][] distribucionAsientos;
+
     @ElementCollection
     @CollectionTable(name = "configuracion_clases", joinColumns = @JoinColumn(name = "configuracion_id"))
     @Column(name = "clase")
