@@ -69,6 +69,10 @@ public class VueloService extends ServiceGeneric<Vuelo, Long, VueloRepository> {
 
     }
 
+    public List<Vuelo> obtenerVuelosPorCiudades(Long origenId, Long destinoId) {
+        return repository.findByCiudadesOrigenAndDestino(origenId, destinoId);
+    }
+
     public List<VueloTagDTO> findByOrigenIdAndDestinoId(Long origenId, Long destinoId) throws Exception {
 
         try{

@@ -46,4 +46,15 @@ public interface VueloRepository extends RepositorioGenerico<Vuelo, Long>{
     @Query("SELECT p FROM Pasaje p WHERE p.vuelo.id = :vueloId AND p.vendido = false")
     List<Pasaje> findPasajesNoVendidosByVueloId(@Param("vueloId") Long vueloId);
 
+    @Query("SELECT v FROM Vuelo v " +
+            "JOIN FETCH v.origen o " +
+            "JOIN FETCH o.ciudad cOrigen " +
+            "JOIN FETCH v.destino d " +
+            "JOIN FETCH d.ciudad cDestino " +
+            "LEFT JOIN FETCH v.avion a " +
+            "WHERE cOrigen.id = :origenId AND cDestino.id = :destinoId")
+    List<Vuelo> findByCiudadesOrigenAndDestino(@Param("origenId") Long origenId,
+                                               @Param("destinoId") Long destinoId);
+
+
 }

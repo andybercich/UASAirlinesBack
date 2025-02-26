@@ -62,6 +62,16 @@ public class VueloController extends ControllerGeneric<Vuelo, Long, VueloReposit
         }
     }
 
+    @GetMapping("/buscarPorCiudad")
+    //http://localhost:8080/vuelo/buscarPorCiudad?ciudadOrigenId=1&ciudadDestinoId=3
+    public ResponseEntity<List<Vuelo>> obtenerVuelosPorCiudades(
+            @RequestParam Long ciudadOrigenId,
+            @RequestParam Long ciudadDestinoId) {
+
+        List<Vuelo> vuelos = service.obtenerVuelosPorCiudades(ciudadOrigenId, ciudadDestinoId);
+        return ResponseEntity.ok(vuelos);
+    }
+
 
     @GetMapping("/sinEscala")
     public ResponseEntity<List<VueloTagDTO>> findAllSinEscala() {
