@@ -231,9 +231,9 @@ public class VueloService extends ServiceGeneric<Vuelo, Long, VueloRepository> {
                 vuelo.getAvion().getMatricula(),
                 vuelo.getId(),
                 vuelo.getOrigen().getCiudad().getNombre(),
-                vuelo.getOrigen().getNombre(),
+                vuelo.getOrigen().getAvrebiatura(),
                 vuelo.getDestino().getCiudad().getNombre(),
-                vuelo.getDestino().getNombre(),
+                vuelo.getDestino().getAvrebiatura(),
                 vuelo.getPrecio()
         );
     }
