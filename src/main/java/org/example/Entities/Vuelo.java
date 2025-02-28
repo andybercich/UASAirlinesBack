@@ -40,6 +40,9 @@ public class Vuelo extends Base {
 
     private double horasVuelo;
 
+    private int descuento;
+
+    public double precio;
 
     @Enumerated(EnumType.STRING)
     private TipoOperacion tipoOperacion;

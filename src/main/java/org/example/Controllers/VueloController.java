@@ -64,11 +64,11 @@ public class VueloController extends ControllerGeneric<Vuelo, Long, VueloReposit
 
     @GetMapping("/buscarPorCiudad")
     //http://localhost:8080/vuelo/buscarPorCiudad?ciudadOrigenId=1&ciudadDestinoId=3
-    public ResponseEntity<List<Vuelo>> obtenerVuelosPorCiudades(
+    public ResponseEntity<List<VueloTagDTO>> obtenerVuelosPorCiudades(
             @RequestParam Long ciudadOrigenId,
-            @RequestParam Long ciudadDestinoId) {
+            @RequestParam Long ciudadDestinoId) throws Exception {
 
-        List<Vuelo> vuelos = service.obtenerVuelosPorCiudades(ciudadOrigenId, ciudadDestinoId);
+        List<VueloTagDTO> vuelos = service.obtenerVuelosPorCiudades(ciudadOrigenId, ciudadDestinoId);
         return ResponseEntity.ok(vuelos);
     }
 

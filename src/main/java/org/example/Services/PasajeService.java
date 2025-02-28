@@ -112,7 +112,6 @@ public class PasajeService extends ServiceGeneric<Pasaje, Long, PasajeRepository
     private PasajeTagDTO convertToPasajeTagDTO(Pasaje pasaje) {
         return new PasajeTagDTO(
                 pasaje.getAsiento(),
-                pasaje.getPrecio(),
                 pasaje.getClase(),
                 pasaje.isVendido()
         );

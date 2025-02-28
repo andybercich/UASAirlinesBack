@@ -32,5 +32,7 @@ public class Aeropuerto extends Base {
     @OneToMany(mappedBy = "destino")
     private Set<Vuelo> llegadas = new HashSet<>();
 
+    private String avrebiatura;
+
 
 }

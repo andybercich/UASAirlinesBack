@@ -10,10 +10,6 @@ public class Pasaje extends Base {
 
     private String asiento;
 
-    private int descuento;
-
-    public double precio;
-
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;

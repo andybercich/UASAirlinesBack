@@ -1,8 +1,12 @@
 package org.example.DTO;
 
+import lombok.Data;
 import org.example.Entities.Aeropuerto;
 
-public class VueloTagDTO {
+import java.io.Serializable;
+
+@Data
+public class VueloTagDTO implements Serializable {
 
     private final String matricula;
 
@@ -10,21 +14,23 @@ public class VueloTagDTO {
 
     private final String ciudadOrigen;
 
-    private final String aeropuertoOrigen;
+    private final String aeropuertoOrigenAvrebiatura;
 
-    private final String aeropuertoDestino;
+    private final String aeropuertoDestinoAvrebiatura;
 
     private final String ciudadDestino;
 
+    private final double precio;
+
     public VueloTagDTO(String matricula, Long id, String ciudadOrigen,String aeropuertoOrigen,
-                       String ciudadDestino, String aeropuertoDestino){
+                       String ciudadDestino, String aeropuertoDestino, double precio){
         this.matricula = matricula;
         this.id = id;
         this.ciudadOrigen = ciudadOrigen;
-        this.aeropuertoOrigen = aeropuertoOrigen;
-        this.aeropuertoDestino = aeropuertoDestino;
+        this.aeropuertoOrigenAvrebiatura = aeropuertoOrigen;
+        this.aeropuertoDestinoAvrebiatura = aeropuertoDestino;
         this.ciudadDestino = ciudadDestino;
-
+        this.precio = precio;
     }
 
 
